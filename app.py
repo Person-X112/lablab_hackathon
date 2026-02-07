@@ -8,6 +8,20 @@ st.set_page_config(page_title="AI WAF", page_icon="image.png")
 #css
 st.markdown("""
     <style>
+    :root {
+    --background-color: #0e1117;
+    --secondary-background-color: #161b22;
+    --text-color: #fafafa;
+}
+
+body, .stApp {
+    background-color: #0e1117;
+    color: #fafafa;
+}
+
+[data-testid="stSidebar"] {
+    background-color: #161b22;
+}
     /* Main Background */
     .stApp {
         background-color: #0e1117;
