@@ -1,7 +1,11 @@
+[theme]
 base="dark"
-
-primaryColor="#1f77b4"
 backgroundColor="#0e1117"
 secondaryBackgroundColor="#161b22"
 textColor="#fafafa"
-font="sans serif"
+
+[theme.light]
+base="dark"
+backgroundColor="#0e1117"
+secondaryBackgroundColor="#161b22"
+textColor="#fafafa"
