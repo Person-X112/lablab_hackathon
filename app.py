@@ -23,10 +23,11 @@ body, .stApp {
     background-color: #161b22;
 }
     /* Main Background */
-    .stApp {
-        background-color: #0e1117;
-        color: #ffffff;
+    .stApp, .stButton, .stAppHeader, .stSidebar, stVerticalBlock, .stForm, .st-cu, button{
+        background-color: #0e1117 !important;
+        color: #ffffff !important;
     }
+
     
     /* Sleek Sidebar */
     [data-testid="stSidebar"] {
