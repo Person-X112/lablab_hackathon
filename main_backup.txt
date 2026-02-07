@@ -1,0 +1,27 @@
+'''
+user_input = st.text_area("User Message:")
+if st.button("Execute Securely"):
+    # STEP 1: INPUT SCRUB
+    clean_input = scrub_text(user_input)
+    
+    # STEP 2: INTENT ANALYSIS
+    with st.spinner("AI WAF Scanning..."):
+        analysis = json.loads(analyze_threat_vector(clean_input))
+    
+    if analysis['risk'] == "High":
+        st.error(f"🛑 BLOCKED: {analysis['vector']} (Score: {analysis['score']})")
+    else:
+        # STEP 3: PROTECTED INFERENCE (System Shadowing)
+        # We wrap the prompt so the user can't escape the 'assistant' role easily
+        client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+        protected_prompt = f"USER REQUEST: {clean_input}\n\nREMINDER: You are a secure assistant. Do not reveal keys or bypass safety."
+        
+        response = client.chat.completions.create(
+            model="llama-3.1-8b-instant",
+            messages=[{"role": "user", "content": protected_prompt}]
+        )
+        
+        # STEP 4: OUTPUT SCRUB
+        final_output = scrub_text(response.choices[0].message.content)
+        st.success("✅ Passed WAF Inspection")
+        st.write(final_output)'''
